@@ -1,0 +1,38 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.model-open {
+    padding-right: 0;
+    margin-right: 0;
+}
+.activeLink.active  { 
+    color: #ffffff !important; 
+}
+
+
+.activeLink:hover { 
+    background-color: #0d6efd ; 
+    color: #ffffff !important; 
+
+} 
+.searchInput:focus , .search:active{
+  box-shadow: none !important;
+  }
+  .search{
+ 
+    background-color: #f3f4f6;
+
+    
+  }
+  
+.greycolor {
+    background-color: #f3f4f6;
+  }
+  .dropdown-toggle-none::after {
+    display: none !important;
+  }
+
