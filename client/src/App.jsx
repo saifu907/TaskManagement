@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
@@ -12,10 +12,20 @@ import InProgress from './pages/InProgress'
 import Pending from './pages/Pending'
 import OverDue from './pages/OverDue'
 import { ToastContainer } from 'react-toastify'
+import useTasks from './customHooks/useFetchTasks'
+import { useSelector } from 'react-redux'
 function App() {
-
-
+  
+  
+//  const dcsdc= useSeletor
+  // useDispatch = useDispatch();
   const [searchKey, setSearchKey] = useState('');
+  const {  fetchTasks, loading, error } = useTasks(searchKey);
+  const tsdk = useSelector((state) => state.tasks.items);
+  
+  useEffect(() => {
+    fetchTasks();
+  }, [searchKey]);
   
   return (
     <>

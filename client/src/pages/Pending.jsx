@@ -3,9 +3,11 @@ import TaskForm from '../components/TaskForm';
 import TaskCard from '../components/TaskCard'; 
 import { getTasks } from '../api/taskApi';
 import useTasks from '../customHooks/useFetchTasks';
+import { useSelector } from 'react-redux';
 
-function Pending({ searchKey }) {
-    const { tasks, fetchTasks, loading, error } = useTasks(searchKey);
+function Pending() {
+  const tasks = useSelector((state) => state.tasks.items);
+    
   
   const [taskToEdit, setTaskToEdit] = useState(null);
 
@@ -20,7 +22,7 @@ function Pending({ searchKey }) {
     <>
       <div className="d-flex justify-content-between align-items-center">
         <h1>Pending Tasks</h1>
-        <TaskForm fetchTasks={fetchTasks}  
+        <TaskForm   
           taskToEdit={taskToEdit} setTaskToEdit={setTaskToEdit} />
 
   
@@ -33,7 +35,7 @@ function Pending({ searchKey }) {
               <div className="col-12 col-sm-6 col-md-4 mb-3" key={index}>
                 <TaskCard 
                   task={task} 
-                  fetchTasks={fetchTasks} 
+                 
                   onEdit={(task) => setTaskToEdit(task)} 
                 />
               </div>

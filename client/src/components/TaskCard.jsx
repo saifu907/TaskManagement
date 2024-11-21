@@ -9,10 +9,15 @@ import Delete from './Delete';
 import { FaPen } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import { MdDelete } from "react-icons/md";
+import { useDispatch } from 'react-redux';
+import { removeTask } from '../features/taskList';
 
 function TaskCard({ fetchTasks, task, onEdit }) {
   const [showModal, setShowModal] = useState(false);
   const [taskToDelete, setTaskToDelete] = useState(null);
+  const dispatch = useDispatch();
+  // console.log(task);
+  
 
   const handleDeleteClick = (taskId) => {
     setTaskToDelete(taskId);  // Store the task ID for confirmation
@@ -22,19 +27,23 @@ function TaskCard({ fetchTasks, task, onEdit }) {
   const handleDelete = async () => {
     try {
       const result = await deleteTask(taskToDelete);
+      console.log(result.status);
+      
       if (result.status === 200) {
-        fetchTasks();
-        setShowModal(false);  // Close the modal on success
+        dispatch(removeTask(task._id));
+        console.log(task._id);
+        
+        setShowModal(false); 
         toast.success('Deleted successfully')
       } else {
-        toast.error('Error deleting task:');
+        toast.error('Error deleting task');
       }
     } catch (error) {
       toast.error('Error deleting task');
     }
   };
 
-  const handleCloseModal = () => setShowModal(false); // Close the modal without deleting
+  const handleCloseModal = () => setShowModal(false);
 
   const getStatusColor = (status, submissionDate) => {
     const today = new Date();

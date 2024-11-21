@@ -2,17 +2,21 @@ import React, { useState } from "react";
 import TaskForm from "../components/TaskForm";
 import TaskCard from "../components/TaskCard";
 import useTasks from "../customHooks/useFetchTasks";
+import { useSelector } from "react-redux";
 
 function AllTask({ searchKey }) {
+  const tasks = useSelector((state) => state.tasks.items);
   const [taskToEdit, setTaskToEdit] = useState(null);
-  const { tasks, fetchTasks, loading, error } = useTasks(searchKey);
+  // const { fetchTasks, loading, error } = useTasks(searchKey);
+console.log(tasks);
+
 
   return (
     <>
       <div className="d-flex justify-content-between align-items-center flex-wrap">
         <h1 className="mb-3">Tasks</h1>
         <TaskForm
-          fetchTasks={fetchTasks}
+          // fetchTasks={fetchTasks}
           taskToEdit={taskToEdit}
           setTaskToEdit={setTaskToEdit}
         />
@@ -27,7 +31,7 @@ function AllTask({ searchKey }) {
               >
                 <TaskCard
                   task={task}
-                  fetchTasks={fetchTasks}
+                  // fetchTasks={fetchTasks}
                   onEdit={(task) => setTaskToEdit(task)}
                 />
               </div>

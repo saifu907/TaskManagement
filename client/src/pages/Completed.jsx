@@ -3,18 +3,20 @@ import TaskForm from '../components/TaskForm';
 import TaskCard from '../components/TaskCard'; 
 import { getTasks } from '../api/taskApi';
 import useTasks from '../customHooks/useFetchTasks';
+import { useSelector } from 'react-redux';
 
-function Completed({ searchKey }) {
+function Completed() {
   
   const [taskToEdit, setTaskToEdit] = useState(null);
-  const { tasks, fetchTasks, loading, error } = useTasks(searchKey);
+  const tasks = useSelector((state) => state.tasks.items);
+
  
     
   return (
     <>
       <div className="d-flex justify-content-between align-items-center">
         <h1>Completed Tasks</h1>
-        <TaskForm fetchTasks={fetchTasks}  
+        <TaskForm 
           taskToEdit={taskToEdit} setTaskToEdit={setTaskToEdit} />
 
  
@@ -32,7 +34,7 @@ function Completed({ searchKey }) {
               >
                 <TaskCard
                   task={task}
-                  fetchTasks={fetchTasks}
+                
                   onEdit={(task) => setTaskToEdit(task)}
                 />
               </div>

@@ -1,19 +1,27 @@
 import { useState, useEffect } from 'react';
 import { getTasks } from '../api/taskApi';
+import { useDispatch } from 'react-redux';
+import { setTasks } from '../features/taskList';
 
 const useTasks = (searchKey) => {
-  const [tasks, setTasks] = useState([]);
+  
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const dispatch = useDispatch()
   
   const fetchTasks = async () => {
       setLoading(true);
       setError(null);
 
+
       try {
-          const result = await getTasks(searchKey);
+        console.log(searchKey);
+        
+          const result = await getTasks(searchKey||'');
       if (result.status === 200) {
-        setTasks(result.data);
+        console.log(result.data ,'hyhg' );
+        
+        dispatch(setTasks(result.data));
       } else {
         setError('Failed to fetch tasks.');
       }
@@ -24,11 +32,12 @@ const useTasks = (searchKey) => {
     }
   };
 
+  
   useEffect(() => {
     fetchTasks();
   }, [searchKey]);
 
-  return { tasks, setTasks,fetchTasks, loading, error };
+  return { loading,error,fetchTasks};
 };
 
 export default useTasks;

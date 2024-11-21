@@ -1,16 +1,10 @@
-// import { configureStore } from "@reduxjs/toolkit"
-// import whishListSlice from "../features/taskList"
-// import cartSlice from "../features/cartSlice"
-// import orderSlice from "../features/orderSlice"
+import { configureStore } from '@reduxjs/toolkit';
+import tasksReducer from '../features/taskList';
 
+const store = configureStore({
+  reducer: {
+    tasks: tasksReducer,
+  },
+});
 
-// const store = configureStore({
-//     reducer:{
-//         taskListsReducer:whishListSlice,
-        
-
-
-//     }
-// })
-
-// export default store
+export default store;

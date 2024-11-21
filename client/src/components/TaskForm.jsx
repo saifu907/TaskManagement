@@ -4,8 +4,13 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { createTask, updateTask } from '../api/taskApi';
 import { toast, ToastContainer } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { editTask } from '../features/taskList';
+import useTasks from '../customHooks/useFetchTasks';
 
-function TaskForm({fetchTasks,taskToEdit,setTaskToEdit}) {
+function TaskForm({taskToEdit,setTaskToEdit}) {
+  const { fetchTasks } = useTasks()
+ const dispatch = useDispatch()
   
   const initialTaskData = {
     title: '',
@@ -13,6 +18,7 @@ function TaskForm({fetchTasks,taskToEdit,setTaskToEdit}) {
     submissionDate: '',
   
   }
+  
   const formatDate = (date) => {
     
     const d = new Date(date);
@@ -64,28 +70,31 @@ function TaskForm({fetchTasks,taskToEdit,setTaskToEdit}) {
         try {
           const result = await updateTask(taskToEdit._id,taskData);
           if (result.status === 200 ) {
+            
+            dispatch(editTask(taskData))
+            
               toast.success('Task updated successfully')
 
             handleClose();
             setTaskData(initialTaskData)
-            fetchTasks()
+        
             
           } else {
             toast.error('error updating task')
           }
         } catch (error) {
-          toast.error('Error updating task:'); 
+          toast.error('Error updating task' + error.message); 
         }
       }
       else {
         try {
           const result = await createTask(taskData);
           if (result.status === 200 ) {
+            fetchTasks()
             
             toast.success('Task added successfully')
           
             setTaskData(initialTaskData)
-            fetchTasks()
             handleClose();
             
           } else {

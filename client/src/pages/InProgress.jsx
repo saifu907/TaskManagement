@@ -3,9 +3,11 @@ import TaskForm from '../components/TaskForm';
 import TaskCard from '../components/TaskCard'; 
 import { getTasks } from '../api/taskApi';
 import useTasks from '../customHooks/useFetchTasks';
+import { useSelector } from 'react-redux';
 
-function InProgress({ searchKey }) {
-    const { tasks, fetchTasks, loading, error } = useTasks(searchKey);
+function InProgress() {
+  const tasks = useSelector((state) => state.tasks.items);
+  ;
   
   const [taskToEdit, setTaskToEdit] = useState(null);
 
@@ -21,7 +23,7 @@ function InProgress({ searchKey }) {
     <>
       <div className="d-flex justify-content-between align-items-center">
         <h1>In Progress Tasks</h1>
-        <TaskForm fetchTasks={fetchTasks}  
+        <TaskForm 
           taskToEdit={taskToEdit} setTaskToEdit={setTaskToEdit} />
         
       </div>
@@ -32,8 +34,7 @@ function InProgress({ searchKey }) {
             inProgressTasks.map((task, index) => (
               <div className="col-12 col-sm-6 col-md-4 mb-3" key={index}>
                 <TaskCard 
-                  task={task} 
-                  fetchTasks={fetchTasks} 
+                  task={task}  
                   onEdit={(task) => setTaskToEdit(task)} 
                 />
               </div>
