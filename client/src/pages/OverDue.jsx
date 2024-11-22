@@ -3,9 +3,10 @@ import TaskForm from '../components/TaskForm';
 import TaskCard from '../components/TaskCard';
 import { useSelector } from 'react-redux';
 
-function OverDue() {
+function OverDue({loading }) {
   const tasks = useSelector((state) => state.tasks.items);
 
+  if(loading) return <p>Loading...</p>
   
   
   const [taskToEdit, setTaskToEdit] = useState(null);

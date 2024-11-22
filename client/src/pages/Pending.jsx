@@ -3,7 +3,7 @@ import TaskForm from '../components/TaskForm';
 import TaskCard from '../components/TaskCard'; 
 import { useSelector } from 'react-redux';
 
-function Pending() {
+function Pending({loading }) {
   const tasks = useSelector((state) => state.tasks.items);
     
   
@@ -14,6 +14,8 @@ function Pending() {
     const today = new Date();
     const dueDate = new Date(task.submissionDate);
     return task.status === "PENDING" && dueDate >= today;
+  if(loading) return <p>Loading...</p>
+
   });
 
   return (

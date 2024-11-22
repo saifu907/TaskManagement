@@ -4,7 +4,8 @@ import TaskCard from '../components/TaskCard';
 
 import { useSelector } from 'react-redux';
 
-function InProgress() {
+function InProgress({loading }) {
+
   const tasks = useSelector((state) => state.tasks.items);
   ;
   
@@ -17,6 +18,7 @@ function InProgress() {
     const dueDate = new Date(task.submissionDate);
     return task.status === "IN PROGRESS" && dueDate >= today;
   });
+  if(loading) return <p>Loading...</p>
 
   return (
     <>

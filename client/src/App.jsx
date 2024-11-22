@@ -32,6 +32,7 @@ function App() {
   useEffect(() => {
     fetchTasks();
   }, []);
+
   
   return (
     <>
@@ -48,18 +49,18 @@ function App() {
       </div>
       </ div>
       <div className="col-9 p-0 m-0 greycolor">
-        
+        {loading && <p className="text-center mt-5">Loading task details...</p>}
 
         
         <Navbars  setSearchKey={setSearchKey}/>
         <div className='ms-2 pt-0 ms-sm-3 pt-sm-3'>
           <Routes>
-            <Route path="/" element={<AllTask   />} />
-            <Route path="/Completed" element={<Completed />} />
-            <Route path="/task/:id" element={<TaskDetail />} />
-                <Route path="/InProgress" element={<InProgress />} />
-                <Route path="/Pending" element={<Pending />} />
-                <Route path="/OverDue" element={<OverDue />} />
+            <Route path="/" element={<AllTask loading={loading }   />} />
+            <Route path="/Completed" element={<Completed loading={loading } />} />
+            <Route path="/task/:id" element={<TaskDetail loading={loading } />} />
+                <Route path="/InProgress" element={<InProgress loading={loading } />} />
+                <Route path="/Pending" element={<Pending loading={loading } />} />
+                <Route path="/OverDue" element={<OverDue loading={loading } />} />
           </Routes>
             </div>
       </div>

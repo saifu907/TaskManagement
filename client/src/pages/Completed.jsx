@@ -4,10 +4,11 @@ import TaskCard from '../components/TaskCard';
 
 import { useSelector } from 'react-redux';
 
-function Completed() {
+function Completed({loading }) {
   
   const [taskToEdit, setTaskToEdit] = useState(null);
   const tasks = useSelector((state) => state.tasks.items);
+  if(loading) return <p>Loading...</p>
 
  
     
