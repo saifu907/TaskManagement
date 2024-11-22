@@ -31,7 +31,7 @@ function InProgress() {
       <div>
         <div className="row mt-3 m-0">
           {inProgressTasks.length > 0 ? (
-            inProgressTasks.map((task, index) => (
+            inProgressTasks.slice().reverse().map((task, index) => (
               <div className="col-12 col-sm-6 col-md-4 mb-3" key={index}>
                 <TaskCard 
                   task={task}  

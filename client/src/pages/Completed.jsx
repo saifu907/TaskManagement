@@ -25,7 +25,7 @@ function Completed() {
       <div>
         <div className="row mt-3 m-0">
           {tasks && tasks.length > 0 ? (
-            tasks
+            tasks.slice().reverse()
               .filter(task => task.status === "COMPLETED")
               .map((task, index) => (
                 <div
