@@ -11,7 +11,6 @@ function Navbars({ setSearchKey }) {
         type="text"
         placeholder="Search...."
         className="border-0 bg-transparent outline-none text-dark  searchInput"
-        // style={{ outline: 'none' }}
         onChange={e=>setSearchKey(e.target.value)}
       />
     </div>

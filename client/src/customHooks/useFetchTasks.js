@@ -15,7 +15,6 @@ const useTasks = (searchKey) => {
 
 
       try {
-        console.log(searchKey);
         
           const result = await getTasks(searchKey||'');
       if (result.status === 200) {
@@ -34,7 +33,9 @@ const useTasks = (searchKey) => {
 
   
   useEffect(() => {
-    fetchTasks();
+    if (searchKey) {
+      fetchTasks();
+    }
   }, [searchKey]);
 
   return { loading,error,fetchTasks};

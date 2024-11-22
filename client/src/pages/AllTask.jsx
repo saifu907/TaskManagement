@@ -7,8 +7,6 @@ import { useSelector } from "react-redux";
 function AllTask({ searchKey }) {
   const tasks = useSelector((state) => state.tasks.items);
   const [taskToEdit, setTaskToEdit] = useState(null);
-  // const { fetchTasks, loading, error } = useTasks(searchKey);
-console.log(tasks);
 
 
   return (
@@ -16,7 +14,6 @@ console.log(tasks);
       <div className="d-flex justify-content-between align-items-center flex-wrap">
         <h1 className="mb-3">Tasks</h1>
         <TaskForm
-          // fetchTasks={fetchTasks}
           taskToEdit={taskToEdit}
           setTaskToEdit={setTaskToEdit}
         />
@@ -31,7 +28,6 @@ console.log(tasks);
               >
                 <TaskCard
                   task={task}
-                  // fetchTasks={fetchTasks}
                   onEdit={(task) => setTaskToEdit(task)}
                 />
               </div>

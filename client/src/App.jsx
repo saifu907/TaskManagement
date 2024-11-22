@@ -22,6 +22,8 @@ function App() {
   const [searchKey, setSearchKey] = useState('');
   const {  fetchTasks, loading, error } = useTasks(searchKey);
   const tsdk = useSelector((state) => state.tasks.items);
+  // console.log(tsdk);
+  
   
   useEffect(() => {
     fetchTasks();
@@ -29,12 +31,7 @@ function App() {
   
   return (
     <>
-    {/* <div className='row'>
 
-          <div className='bg-light text-dark p-0 vh-100 sticky-top d-flex flex-column justify-content-between sidebarul border-end shadow'>
-
-      </div>
-    </div> */}
     <ToastContainer />
 
     <div className="row m-0">
@@ -53,15 +50,12 @@ function App() {
         <Navbars  setSearchKey={setSearchKey}/>
         <div className='ms-3 pt-3 '>
           <Routes>
-            <Route path="/" element={<AllTask searchKey={searchKey}  />} />
+            <Route path="/" element={<AllTask   />} />
             <Route path="/Completed" element={<Completed searchKey={searchKey}/>} />
             <Route path="/task/:id" element={<TaskDetail searchKey={searchKey}/>} />
                 <Route path="/InProgress" element={<InProgress searchKey={searchKey}/>} />
                 <Route path="/Pending" element={<Pending searchKey={searchKey}/>} />
                 <Route path="/OverDue" element={<OverDue searchKey={searchKey}/>} />
-                {/* <Route path="/pending-tasks" element={<PendingTasks />} /> */}
-            {/* <Route path="/add" element={<TaskForm isEditing={false} />} />
-            <Route path="/edit/:id" element={<EditTask />} /> */}
           </Routes>
             </div>
       </div>

@@ -61,9 +61,6 @@ function TaskForm({taskToEdit,setTaskToEdit}) {
 
 
     const handleAdd = async() => {
-      
-      
-      
       if (taskData.title === '' || taskData.description === '' || taskData.submissionDate === '') {
         toast.error('Please fill all fields')
       }else if(taskToEdit){
