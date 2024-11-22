@@ -9,9 +9,9 @@ import { BiTaskX } from "react-icons/bi";
 function Sidebar() {
   return (
     <>
-      <h2 className="text-center mb-5 d-none d-md-block">Task Manager</h2>
-      <ul className="nav nav-pills flex-column mb-auto w-100 gap-4 mt-5 ">
-        <li className="nav-item  ">
+      <h2 className="text-center mb-5 d-none d-md-block ">Task Manager</h2>
+      <ul className="nav nav-pills  flex-sm-column mb-auto w-100 gap-4 mt-sm-5   justify-content-evenly">
+        <li className=" ">
           <NavLink
             to="/"
             className="nav-link py-3 py-sm-2 activeLink text-dark d-flex align-items-center gap-2 rounded-1 justify-content-center justify-content-md-start"

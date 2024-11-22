@@ -32,6 +32,7 @@ function App() {
   useEffect(() => {
     fetchTasks();
   }, []);
+  const [isMobile, setIsMobile] = useState(false);
 
   
   return (
@@ -40,15 +41,25 @@ function App() {
     <ToastContainer />
 
     <div className="row m-0">
-      <div className="col-3 p-0 m-0">
+      <div className="col-12 col-sm-3 p-0 m-0">
 
 
 
-      <div className="d-flex sticky-top flex-column  p-3 bg-light m-0  vh-100" >
-        <Sidebar />
+      <div className="d-none d-md-block">
+        <div className="d-flex sticky-top flex-column p-3 bg-light m-0 vh-100">
+          <Sidebar />
+        </div>
       </div>
+
+      <div className="d-block d-md-none">
+        <div className="d-flex fixed-bottom w-100 flex-row align-items-center bg-light">
+          <Sidebar />
+        </div>
+      </div>
+
+
       </ div>
-      <div className="col-9 p-0 m-0 greycolor">
+      <div className="col-12 col-sm-9 p-0 m-0 greycolor">
 
         
         <Navbars  setSearchKey={setSearchKey}/>
