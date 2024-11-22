@@ -17,7 +17,6 @@ import { useSelector } from 'react-redux'
 function App() {
   
   const [searchKey, setSearchKey] = useState('');
-  const tsdk = useSelector((state) => state.tasks.items);
   const [debouncedSearchKey, setDebouncedSearchKey] = useState('')
   const {  fetchTasks, loading, error } = useTasks(debouncedSearchKey);
   
