@@ -59,10 +59,10 @@ function TaskCard({ fetchTasks, task, onEdit }) {
     const baseText = daysLeft === 0 ? "Due today" : `${daysLeft} days left`;
 
     const statusColorMap = {
-      PENDING: "warning",
-      "IN PROGRESS": "primary",
+      PENDING: "primary",
+      "IN PROGRESS": "warning",
       COMPLETED: "success",
-      DEFAULT: "warning",
+      DEFAULT: "primary",
     };
 
     return {
