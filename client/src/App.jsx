@@ -49,7 +49,6 @@ function App() {
       </div>
       </ div>
       <div className="col-9 p-0 m-0 greycolor">
-        {loading && <p className="text-center mt-5">Loading task details...</p>}
 
         
         <Navbars  setSearchKey={setSearchKey}/>
