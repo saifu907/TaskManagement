@@ -11,7 +11,7 @@ function InProgress() {
   const [taskToEdit, setTaskToEdit] = useState(null);
 
 
-  // Filter tasks: "IN PROGRESS" but not overdue
+  
   const inProgressTasks = tasks.filter((task) => {
     const today = new Date();
     const dueDate = new Date(task.submissionDate);
