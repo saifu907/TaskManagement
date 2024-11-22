@@ -5,12 +5,15 @@ import Form from 'react-bootstrap/Form';
 import { IoSendSharp } from "react-icons/io5";
 import { FaCircle } from "react-icons/fa";
 import { toast, ToastContainer } from 'react-toastify';
+import { editTask } from '../features/taskList';
+import { useDispatch } from 'react-redux';
 
 function TaskDetail() {
   const { id } = useParams();
   const [task, setTask] = useState(null);
   const [status, setStatus] = useState('');
   const [assignedTeam, setAssignedTeam] = useState(''); 
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const fetchTask = async () => {
@@ -37,6 +40,7 @@ function TaskDetail() {
       if (result.status === 200) {
         setTask(updatedTask);
         toast.success('Status updated successfully');
+        dispatch(editTask(updatedTask));
       } else {
         toast.error('Failed to update status:', result);
       }

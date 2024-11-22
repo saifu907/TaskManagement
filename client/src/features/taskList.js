@@ -9,9 +9,6 @@ const tasksSlice = createSlice({
     setTasks(state, action) {
       state.items = action.payload; 
     },
-    clearTasks(state) {
-      state.items = []; 
-    },
     removeTask(state, action) {
       const taskId = action.payload; 
       state.items = state.items.filter((task) => task._id !== taskId); 
