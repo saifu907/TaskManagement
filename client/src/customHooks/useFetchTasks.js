@@ -17,9 +17,7 @@ const useTasks = (searchKey) => {
       try {
         
           const result = await getTasks(searchKey||'');
-      if (result.status === 200) {
-        console.log(result.data ,'hyhg' );
-        
+      if (result.status === 200) {        
         dispatch(setTasks(result.data));
       } else {
         setError('Failed to fetch tasks.');
