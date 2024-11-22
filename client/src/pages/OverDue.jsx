@@ -6,11 +6,11 @@ import { useSelector } from 'react-redux';
 function OverDue({loading }) {
   const tasks = useSelector((state) => state.tasks.items);
 
-  if(loading) return <p>Loading...</p>
   
   
   const [taskToEdit, setTaskToEdit] = useState(null);
-
+  
+  if(loading) return <p>Loading...</p>
  
 
   
