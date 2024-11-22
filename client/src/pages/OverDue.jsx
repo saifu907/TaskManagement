@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import TaskForm from '../components/TaskForm';
 import TaskCard from '../components/TaskCard';
-import { getTasks } from '../api/taskApi';
-import useTasks from '../customHooks/useFetchTasks';
 import { useSelector } from 'react-redux';
 
 function OverDue() {

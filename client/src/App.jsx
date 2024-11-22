@@ -22,12 +22,11 @@ function App() {
   const [searchKey, setSearchKey] = useState('');
   const {  fetchTasks, loading, error } = useTasks(searchKey);
   const tsdk = useSelector((state) => state.tasks.items);
-  // console.log(tsdk);
   
   
   useEffect(() => {
     fetchTasks();
-  }, [searchKey]);
+  }, []);
   
   return (
     <>

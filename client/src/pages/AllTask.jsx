@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import TaskForm from "../components/TaskForm";
 import TaskCard from "../components/TaskCard";
-import useTasks from "../customHooks/useFetchTasks";
 import { useSelector } from "react-redux";
 
-function AllTask({ searchKey }) {
+function AllTask() {
   const tasks = useSelector((state) => state.tasks.items);
   const [taskToEdit, setTaskToEdit] = useState(null);
 

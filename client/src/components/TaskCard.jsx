@@ -12,16 +12,16 @@ import { MdDelete } from "react-icons/md";
 import { useDispatch } from 'react-redux';
 import { removeTask } from '../features/taskList';
 
-function TaskCard({ fetchTasks, task, onEdit }) {
+function TaskCard({  task, onEdit }) {
   const [showModal, setShowModal] = useState(false);
   const [taskToDelete, setTaskToDelete] = useState(null);
   const dispatch = useDispatch();
-  // console.log(task);
+ 
   
 
   const handleDeleteClick = (taskId) => {
-    setTaskToDelete(taskId);  // Store the task ID for confirmation
-    setShowModal(true);        // Show the modal
+    setTaskToDelete(taskId);  
+    setShowModal(true);       
   };
 
   const handleDelete = async () => {
