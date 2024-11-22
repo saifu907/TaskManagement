@@ -16,14 +16,20 @@ import useTasks from './customHooks/useFetchTasks'
 import { useSelector } from 'react-redux'
 function App() {
   
-  
-//  const dcsdc= useSeletor
-  // useDispatch = useDispatch();
   const [searchKey, setSearchKey] = useState('');
-  const {  fetchTasks, loading, error } = useTasks(searchKey);
   const tsdk = useSelector((state) => state.tasks.items);
+  const [debouncedSearchKey, setDebouncedSearchKey] = useState('')
+  const {  fetchTasks, loading, error } = useTasks(debouncedSearchKey);
   
-  
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setDebouncedSearchKey(searchKey);
+    }, 300); 
+
+    return () => clearTimeout(timeout); 
+  }, [searchKey]);
+
+
   useEffect(() => {
     fetchTasks();
   }, []);
