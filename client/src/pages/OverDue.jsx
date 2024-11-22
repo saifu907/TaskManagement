@@ -15,8 +15,9 @@ function OverDue({loading }) {
 
   
   const overdueTasks = tasks.filter((task) => {
-    const dueDate = new Date(task.submissionDate);
-    const today = new Date();
+    const dueDate = new Date(task.submissionDate).toISOString().slice(0, 10); 
+  const today = new Date().toISOString().slice(0, 10);
+    
     return dueDate < today && task.status !== "COMPLETED";
   });
 
@@ -31,6 +32,7 @@ function OverDue({loading }) {
       <div>
         <div className="row mt-3 m-0">
           {overdueTasks.length > 0 ? (
+
             overdueTasks.slice().reverse().map((task, index) => (
               <div className="col-12 col-sm-6 col-md-4 mb-3" key={index}>
                 <TaskCard 
