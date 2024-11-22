@@ -53,14 +53,14 @@ function App() {
 
         
         <Navbars  setSearchKey={setSearchKey}/>
-        <div className='ms-3 pt-3 '>
+        <div className='ms-2 pt-0 ms-sm-3 pt-sm-3'>
           <Routes>
             <Route path="/" element={<AllTask   />} />
-            <Route path="/Completed" element={<Completed searchKey={searchKey}/>} />
-            <Route path="/task/:id" element={<TaskDetail searchKey={searchKey}/>} />
-                <Route path="/InProgress" element={<InProgress searchKey={searchKey}/>} />
-                <Route path="/Pending" element={<Pending searchKey={searchKey}/>} />
-                <Route path="/OverDue" element={<OverDue searchKey={searchKey}/>} />
+            <Route path="/Completed" element={<Completed />} />
+            <Route path="/task/:id" element={<TaskDetail />} />
+                <Route path="/InProgress" element={<InProgress />} />
+                <Route path="/Pending" element={<Pending />} />
+                <Route path="/OverDue" element={<OverDue />} />
           </Routes>
             </div>
       </div>
