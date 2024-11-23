@@ -116,7 +116,7 @@ function TaskDetail() {
     <div className="">
       <ToastContainer/>
       <h1 className=" mb-3 ">{task.title}</h1>
-      <div className="row ms-0 ps-0 ms-sm-5  ps-sm-5 pt-4 bg-light" style={{ height: '100vh' }}>
+      <div className="row p-0 m-0  ms-0 ps-0 ms-sm-5  ps-sm-5 pt-4 bg-light" style={{ height: '100vh' }}>
         <div className="col-md-6">
           <p className="d-flex align-items-center gap-2 fs-mute">
             <FaCircle className={`text-${getStatusColor()}`} />
