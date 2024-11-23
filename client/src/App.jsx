@@ -46,7 +46,7 @@ function App() {
 
 
       <div className="d-none d-md-block">
-        <div className="d-flex sticky-top flex-column p-3 bg-light m-0 vh-100">
+        <div className="d-flex w-25 fixed-top flex-column p-3 bg-light m-0 vh-100">
           <Sidebar />
         </div>
       </div>
