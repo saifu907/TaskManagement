@@ -5,6 +5,9 @@
     box-sizing: border-box;
     
 }
+Html{ 
+  background-color: #f3f4f6;
+}
 .model-open {
     padding-right: 0;
     margin-right: 0;

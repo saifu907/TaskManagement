@@ -43,19 +43,15 @@ function App() {
     <div className="row m-0">
       <div className="col-12 col-sm-3 p-0 m-0">
 
-
-
-      <div className="d-none d-md-block">
-        <div className="d-flex w-25 fixed-top flex-column p-3 bg-light m-0 vh-100">
+        {/* Sidebar for larger screens */}
+        <div className="d-none d-sm-flex flex-column sticky-top p-3 bg-light vh-100">
           <Sidebar />
         </div>
-      </div>
 
-      <div className="d-block d-md-none">
-        <div className="d-flex fixed-bottom w-100 flex-row align-items-center bg-light">
+        {/* Sidebar for smaller screens */}
+        <div className="d-flex d-sm-none fixed-bottom w-100 bg-light p-2">
           <Sidebar />
         </div>
-      </div>
 
 
       </ div>
