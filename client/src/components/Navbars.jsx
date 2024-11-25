@@ -9,7 +9,7 @@ function Navbars({ setSearchKey }) {
 
   return (
     <nav style={{ height: '90px' }} className={`navbar sticky-top d-flex justify-content-between align-items-center  px-3 ${themeMode === 'dark' ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
-      <div className={`d-flex align-items-center py-1 px-3 gap-0 rounded-pill ${themeMode === 'dark' ? 'darklightcolor  dark' : 'whitelightcolor light'}`}>
+      <div className={`d-flex w-50 align-items-center py-1 px-3 gap-0 rounded-pill ${themeMode === 'dark' ? 'darklightcolor  dark' : 'whitelightcolor light'}`}>
       <CiSearch className="fs-5" />
       <Form.Control
         type="text"
