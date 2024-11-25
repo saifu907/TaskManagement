@@ -5,36 +5,52 @@
     box-sizing: border-box;
     
 }
-Html{ 
+body{ 
+  background-color: #f3f4f6 !important;
+}
+
+.whitelightcolor {
   background-color: #f3f4f6;
 }
+.darklightcolor {
+  background-color: #151313;
+}
+
+
+
+
+
+
 .model-open {
     padding-right: 0;
     margin-right: 0;
 }
-.activeLink.active  { 
-    color: #ffffff !important; 
+.hover-dark.active  { 
+    color: #000000 !important; 
 }
 
-
-.activeLink:hover { 
-    background-color: #0d6efd ; 
-    color: #ffffff !important; 
-
+.hover-dark:hover { 
+  background-color: #0d6efd !important; 
+  color: #000000 !important; 
 } 
+
+.hover-light.active  { 
+  color: #ffffff !important; 
+}
+.hover-light:hover { 
+  background-color: #0d6efd !important; 
+  color: #ffffff !important; 
+}   
+.hover-primary:hover { 
+  background-color: #0d6efd !important; 
+}
+
 .searchInput:focus , .search:active{
   box-shadow: none !important;
   }
-  .search{
  
-    background-color: #f3f4f6;
-
-    
-  }
   
-.greycolor {
-    background-color: #f3f4f6;
-  }
+
   .dropdown-toggle-none::after {
     display: none !important;
   }
@@ -54,3 +70,89 @@ Html{
 ::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
+
+
+#light {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+
+}
+#dark {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+
+}
+
+.dark .textplaceholder::placeholder{
+
+  color: #ffffff ;
+
+}
+
+.light .textplaceholder::placeholder{
+
+  color: #000000 ;
+}
+.toggle .react-switch-bg{
+/* padding: ; */
+box-shadow: 0px 1px 5px 2px rgb(94, 97, 94) inset;
+}
+.toggle .react-switch-bg{
+  /* padding: ; */
+  box-shadow: 0px 1px 5px 2px rgb(94, 97, 94) inset;
+  }
+.toggle .react-switch-bg div{
+  display: flex;
+  /* padding-right: 20px !important; */
+
+
+  justify-content: center ;
+  align-items: center ;
+}
+/* .toggle{
+  /* background-color: #f3f4f6 !important;
+  color: #000000 !important; */
+  /* box-shadow: 1px 2px 5px  green inset !important; /* Inner shadow */
+/* }   */
+/* .theme-toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+.custom-switch {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.custom-switch input{
+
+  width: 70px !important;
+  height: 30px !important;
+
+}
+
+.custom-switch.switch-dark {
+  color: #fff;
+  position: relative;
+
+}
+.custom-switch.switch-dark {
+  color: #fff;
+  /* position: absolute; */
+/* }
+
+.custom-switch.switch-light {
+  color: #000;
+} */
+
+/* .sr-only { */
+  /* position: absolute; */
+  /* width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; */
+/* } */ 

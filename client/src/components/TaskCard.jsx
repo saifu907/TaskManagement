@@ -11,8 +11,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import { MdDelete } from "react-icons/md";
 import { useDispatch } from 'react-redux';
 import { removeTask } from '../features/taskList';
+import { useTheme } from '../context/mode';
 
 function TaskCard({  task, onEdit }) {
+  const { themeMode } = useTheme(); 
+
   const [showModal, setShowModal] = useState(false);
   const [taskToDelete, setTaskToDelete] = useState(null);
   const dispatch = useDispatch();
@@ -76,15 +79,15 @@ function TaskCard({  task, onEdit }) {
   return (
     <>
     <ToastContainer/>
-      <Card className={`p-0 mb-3 shadow-sm border-start-0 border-bottom-0 border-top-0 border-${color} border-5`} style={{ height: "250px" }}>
+      <Card className={`p-0 mb-3 shadow-sm border-start-0 border-bottom-0 border-top-0  border-${color} border-5  ${themeMode === 'dark' ? 'bg-dark text-light' : 'bg-light text-dark'}`} style={{ height: "250px" }}>
         <Card.Body className="d-flex flex-column">
           <div className="d-flex justify-content-between">
             <div style={{ maxHeight: "100px", overflow: "hidden" }}>
-              <Link className="text-decoration-none text-dark" to={`/task/${task._id}`}>
+              <Link className={`text-decoration-none ${themeMode === 'dark' ? 'text-light' : 'text-dark'}`} to={`/task/${task._id}`}>
                 <Card.Title>{task.title}</Card.Title>
               </Link>
               <Card.Text
-                className="text-muted"
+                className="fw-light"
                 style={{
                   display: "-webkit-box",
                   WebkitBoxOrient: "vertical",
@@ -98,14 +101,12 @@ function TaskCard({  task, onEdit }) {
               <Dropdown.Toggle as="span" className="dropdown-toggle-none">
                 <BsThreeDotsVertical className="fs-5" />
               </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <div className='d-flex flex-column  gap-2'>
+              <Dropdown.Menu  className={ `${themeMode === 'dark' ? 'bg-dark' : 'bg-light'} px-2  ` }>
 
-                <Dropdown.Item onClick={() => onEdit(task)}  className="099 d-flex align-items-center gap-2"><FaPen  className=''/>  Edit</Dropdown.Item>
-                <Dropdown.Item onClick={() => handleDeleteClick(task._id)} className="text-danger d-flex align-items-center gap-2">
+                <Dropdown.Item onClick={() => onEdit(task)}  className={`${themeMode === 'dark' ? 'text-light hover-dark' : 'text-dark hover-light'}  099 d-flex align-items-center gap-2  rounded-1`} ><FaPen  className=''/>  Edit</Dropdown.Item>
+                <Dropdown.Item onClick={() => handleDeleteClick(task._id)} className="text-danger d-flex align-items-center gap-2 hover-primary rounded-1">
                  <MdDelete className=' '/>Delete
                 </Dropdown.Item>
-                </div>
               </Dropdown.Menu>
             </Dropdown>
           </div>

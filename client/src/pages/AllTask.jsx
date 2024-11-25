@@ -4,6 +4,7 @@ import TaskCard from "../components/TaskCard";
 import { useSelector } from "react-redux";
 
 function AllTask( {loading } ) {
+
   const tasks = useSelector((state) => state.tasks.items);
   const [taskToEdit, setTaskToEdit] = useState(null); 
   if(loading) return <p>Loading...</p>
@@ -12,8 +13,6 @@ function AllTask( {loading } ) {
 
   return (
     <>
-      
-
       <div className="d-flex justify-content-between align-items-center flex-wrap">
         <h1 className="mb-3">Tasks</h1>
         <TaskForm

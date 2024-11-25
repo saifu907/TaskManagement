@@ -14,6 +14,7 @@ import OverDue from './pages/OverDue'
 import { ToastContainer } from 'react-toastify'
 import useTasks from './customHooks/useFetchTasks'
 import { useSelector } from 'react-redux'
+import { useTheme } from './context/mode'
 function App() {
   
   const [searchKey, setSearchKey] = useState('');
@@ -32,34 +33,38 @@ function App() {
   useEffect(() => {
     fetchTasks();
   }, []);
-  const [isMobile, setIsMobile] = useState(false);
+  
+  const { themeMode, toggleTheme } = useTheme();
 
   
   return (
     <>
 
     <ToastContainer />
+<div className= {`p-0 m-0  vh-100 ${themeMode === 'dark' ? 'darklightcolor' : 'whitelightcolor'}`}>
 
-    <div className="row m-0">
+
+    <div className= {` row m-0  ${themeMode === 'dark' ? 'bg-dark text-light' : 'bg-light text-dark'}`} >
       <div className="col-12 col-sm-3 p-0 m-0">
 
         {/* Sidebar for larger screens */}
-        <div className="d-none d-sm-flex flex-column sticky-top p-3 bg-light vh-100">
+        <div className="d-none d-sm-flex flex-column sticky-top p-3  vh-100">
           <Sidebar />
         </div>
 
         {/* Sidebar for smaller screens */}
-        <div className="d-flex d-sm-none fixed-bottom w-100 bg-light p-2">
+        <div className={`d-flex d-sm-none fixed-bottom p-2 ${themeMode === 'dark' ? 'bg-dark text-light' : 'bg-light text-dark'}`}>
           <Sidebar />
         </div>
 
 
       </ div>
-      <div className="col-12 col-sm-9 p-0 m-0 greycolor">
+      <div className= {`col-12 col-sm-9 p-0 m-0 ${themeMode === 'dark' ? 'darklightcolor' : 'whitelightcolor'}`}>
 
         
         <Navbars  setSearchKey={setSearchKey}/>
-        <div className='ms-2 pt-0 ms-sm-3 pt-sm-3'>
+        
+        <div className='ms-2 pt-0 ms-sm-3 pt-sm-3 '>
           <Routes>
             <Route path="/" element={<AllTask loading={loading }   />} />
             <Route path="/Completed" element={<Completed loading={loading } />} />
@@ -71,6 +76,7 @@ function App() {
             </div>
       </div>
     </div>
+</div>
       
     </>
   )
